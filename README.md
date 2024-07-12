@@ -75,9 +75,10 @@ https://aitrics.notion.site/Frontend-latest-74bac2856f5e459da0ac1fce942d38a3?pvs
         - **StatusFilter.tsx** - 체크박스로 상태를 필터링
         - **TableCellComponent.tsx** - 환자 데이터를 테이블 셀에 렌더링하고 복사 기능을 포함
     - **hooks**             
-        - **usePatientStatusCounts.ts** - react-query 사용
+        - **usePatientStatusCounts.ts** - react-query로 환자 상태별 개수 계산
+        - **usePatientsData.ts** - react-query로 환자 데이터를 가져오고 무한 스크롤을 관리
     - **recoil**
-        - **atoms.ts** - recoil로 상태 관리
+        - **atoms.ts** - 전역 상태 관리를 위해 Recoil 사용
     - **type**
         - **type.ts**
     - **utils**
@@ -154,6 +155,10 @@ https://aitrics.notion.site/Frontend-latest-74bac2856f5e459da0ac1fce942d38a3?pvs
   - handleSort: 테이블 헤더 클릭 시 호출되어 정렬 상태를 변경하고, 데이터를 정렬하는 함수입니다. 정렬 순서는 내림차순, 오름차순, 정렬 해제의 순서로 변경됩니다.
   - handleStatusChange: 필터링 기능을 위해 상태 변경 시 호출되는 함수로, 체크박스를 클릭하여 필터링 상태를 변경합니다.
   - handleResetSort: 정렬을 초기 상태로 리셋하는 함수입니다. 기본 정렬 상태로 돌아가도록 합니다.
+  - TableCellComponent : 개별 테이블 셀 컴포넌트로, 각 환자 데이터를 테이블 행으로 렌더링합니다. 마지막 환자 행을 감지하여 무한 스크롤을 트리거하는 역할을 합니다.
+  - SortIcon : 정렬 상태를 시각적으로 표시하는 아이콘을 렌더링합니다. 현재 정렬 상태 (오름차순, 내림차순, 정렬 해제)를 반영합니다.
+  - StatusFilter : 환자의 상태를 필터링하는 기능을 제공합니다. 체크박스를 통해 필터 상태를 변경하고, 이에 따라 테이블 데이터를 필터링합니다.
+  - convertStatus : 환자의 상태를 특정 형식으로 변환하여 UI에 표시합니다.
 
 
 - 유틸리티 함수
