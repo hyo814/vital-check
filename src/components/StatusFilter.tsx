@@ -8,18 +8,18 @@ interface StatusFilterProps {
 }
 
 const StatusFilter: React.FC<StatusFilterProps> = ({ filterStatus, handleStatusChange, statusCounts }) => (
-	<div style={{background: '#ffffff'}}>
-		<span>&nbsp;전체 ({statusCounts['전체'] || 0}){" "}|{" "}</span>
-		{['신규', '관찰 중', '오류', '완료', 'DNR'].map(status => (
+	<div style={{ background: '#ffffff' }}>
+		<span>&nbsp;전체 ({statusCounts['전체'] || 0}) | </span>
+		{['신규', '관찰 중', '오류', '완료', 'DNR'].map((status) => (
 			<span key={status}>
-				<label>
-					<Checkbox
-						checked={filterStatus.includes(status)}
-						onChange={() => handleStatusChange(status)}
-					/>
-					{status} ({statusCounts[status] || 0})
-				</label>
-			</span>
+        <label>
+          <Checkbox
+	          checked={filterStatus.includes(status)}
+	          onChange={() => handleStatusChange(status)}
+          />
+	        {status} ({statusCounts[status] || 0})
+        </label>
+      </span>
 		))}
 	</div>
 );

@@ -30,6 +30,8 @@ https://aitrics.notion.site/Frontend-latest-74bac2856f5e459da0ac1fce942d38a3?pvs
    ```
    npm run dev
    ```
+4. 하단에 있는 "기타 : 추가 설정" 백엔드 개발 서버(json-server)를 연동시킵니다.
+5. 프론트 개발 서버가 실행이 되면 http://localhost:3000으로 진입합니다.
 
 ## 기술 스택
 
