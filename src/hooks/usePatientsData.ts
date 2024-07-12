@@ -14,11 +14,13 @@ const usePatientsData = () => {
 		hasNextPage,
 		isFetchingNextPage,
 		refetch,
-		isLoading
+		isLoading,
+		isError
 	} = useInfiniteQuery('patients', fetchPatients, {
 		getNextPageParam: (lastPage, pages) => {
 			return lastPage.length === 5 ? pages.length + 1 : undefined;
-		}
+		},
+		retry: false
 	});
 	
 	const lastPatientRef = useCallback((node: HTMLTableRowElement | null) => {
@@ -37,6 +39,31 @@ const usePatientsData = () => {
 			setPatients(newPatients);
 		}
 	}, [data, setPatients]);
+	
+	useEffect(() => {
+		const handleOnline = () => {
+			refetch();
+		};
+		
+		const retryFetch = () => {
+			if (isError) {
+				refetch();
+			}
+		};
+		
+		window.addEventListener('online', handleOnline);
+		
+		const intervalId = setInterval(() => {
+			if (isError) {
+				retryFetch();
+			}
+		}, 5000);
+		
+		return () => {
+			window.removeEventListener('online', handleOnline);
+			clearInterval(intervalId);
+		};
+	}, [isError, refetch]);
 	
 	const handleResetSort = () => {
 		setPatients([]);
