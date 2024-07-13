@@ -177,6 +177,6 @@ https://aitrics.notion.site/Frontend-latest-74bac2856f5e459da0ac1fce942d38a3?pvs
 - `json-server`를 사용하여 가짜 REST API를 구축합니다. 서버 실행 방법:
    ```
    cd public/mocks
-   json-server --watch Screening.json --port 4000
+   json-server --watch ScreeningData.json --port 4000
    ```
 
