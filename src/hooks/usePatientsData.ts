@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useRef } from 'react';
-import { useRecoilState } from 'recoil';
-import { patientsState } from '../recoil/atoms';
-import { useInfiniteQuery } from 'react-query';
-import { fetchPatients } from '../api/api';
+import {useCallback, useEffect, useRef} from 'react';
+import {useRecoilState} from 'recoil';
+import {patientsState} from '../recoil/atoms';
+import {useInfiniteQuery} from 'react-query';
+import {fetchPatients} from '../api/api';
 
 const usePatientsData = () => {
 	const [patients, setPatients] = useRecoilState(patientsState);
@@ -20,7 +20,9 @@ const usePatientsData = () => {
 		getNextPageParam: (lastPage, pages) => {
 			return lastPage.length === 5 ? pages.length + 1 : undefined;
 		},
-		retry: false
+		retry: false,
+		cacheTime: 0,
+		staleTime: 0
 	});
 	
 	const lastPatientRef = useCallback((node: HTMLTableRowElement | null) => {
