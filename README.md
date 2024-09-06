@@ -1,10 +1,4 @@
-# AITRICS Frontend assignment
-
-## 과제 안내
-
-https://aitrics.notion.site/Frontend-latest-74bac2856f5e459da0ac1fce942d38a3?pvs=4
-
-## 과제 설명
+## 설명
 # Hospital Dashboard
 
 본 대시보드는 병원에 입원한 환자의 최신 관측 데이터를 모니터링하기 위해 개발되었습니다. Typescript와 React.js, Next.js를 활용하여 구현되었으며, json-server를 사용하여 REST API mock server가 구축되었습니다.
