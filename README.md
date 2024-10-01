@@ -14,7 +14,7 @@
 
 1. 이 저장소를 클론합니다.
    ```
-   git clone [https://github.com/hyo814/AITRICS]
+   git clone [https://github.com/hyo814/vital-check]
    ```
 2. 필요한 npm 패키지들을 설치합니다.
    ```
